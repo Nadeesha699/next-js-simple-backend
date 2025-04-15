@@ -5,6 +5,11 @@ export async function GET() {
   return Response.json({ data: users });
 }
 
-export async function POST(){
-    
+export async function POST(request) {
+  const data = await request.json();
+  const { email, name, age, country } = data;
+  const response = await prisma.user.create({
+    data: { email, name, age, country },
+  });
+  return Response.json({ data: response });
 }
