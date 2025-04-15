@@ -13,3 +13,7 @@ export async function POST(request) {
   });
   return Response.json({ data: response });
 }
+
+export async function PUT(request) {
+    
+}
