@@ -17,3 +17,10 @@ export async function DELETE(request, { params }) {
   await prisma.user.delete({ where: { id } });
   return Response.json({ message: "delete success" });
 }
+
+export async function GET(request, { params }) {
+  const id = parseInt(params.id);
+
+  const response = await prisma.user.findUnique({ where: { id } });
+  return Response.json({ data: response });
+}
